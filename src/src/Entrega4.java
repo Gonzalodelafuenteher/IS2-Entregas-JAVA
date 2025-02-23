@@ -1,5 +1,6 @@
 package src;
 import java.io.BufferedReader;
+import java.util.HashSet;
 import java.io.FileReader;
 import java.io.IOException;
 
@@ -72,42 +73,97 @@ public class Entrega4{
 
         return xn;
     }
+    
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	
-public class LecturaArchivo {
-    public static void main(String[] args) {
-        try (
-            // BufferedReader es una herramienta que nos ayuda a leer archivos
-            // FileReader le dice a Java qué archivo queremos leer
-            BufferedReader br = new BufferedReader(new FileReader("archivo.txt"))
-        ) {
-            // Variable para guardar cada línea que leamos
+    public static String funcion6(String fichero, String separador, String cadena) {
+        int contador = 0;
+        try (BufferedReader br = new BufferedReader(new FileReader(fichero))) {
             String linea;
-            
-            // Mientras haya líneas por leer...
-            // readLine() lee una línea del archivo
             while ((linea = br.readLine()) != null) {
-                // Mostramos la línea en pantalla
-                System.out.println(linea);
+                String[] palabras = linea.split(separador);
+                for (String palabra : palabras) {
+                    if (palabra.toLowerCase().equals(cadena.toLowerCase())) {
+                        contador++;
+                    }
+                }
             }
-        } 
-        // IOException es el tipo de error que puede ocurrir al trabajar con archivos
-        catch (IOException e) {
-            // Si hay un error (por ejemplo, si el archivo no existe)
-            // printStackTrace muestra información sobre el error
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    	return "La palabra "+cadena+" aparece "+contador+" veces";
+    }
+    
+    public static void funcion7(String fichero, String separador, String cadena) {
+        try (BufferedReader br = new BufferedReader(new FileReader(fichero))) {
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                String[] palabras = linea.split(separador);
+                for (String palabra : palabras) {
+                    if (palabra.toLowerCase().equals(cadena.toLowerCase())) {
+                        System.out.println(linea);
+                    }
+                }
+            }
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
+    	
     
     
-}   
+    	
+    	public static HashSet<String> funcion8(String fichero) {
+            HashSet<String> palabrauni = new HashSet<>();
+            try (BufferedReader br = new BufferedReader(new FileReader(fichero))) {
+                String linea;
+                while ((linea = br.readLine()) != null) {
+                	String [] palabras = linea.split(" ");
+                    for (String palabra : palabras) {
+                        palabrauni.add(palabra);  
+                    }
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        	return palabrauni;
+    	
+    	
+    }
+    	
+    	
+    	public static double funcion9(String fichero, String separador) {
+            int longitud = 0;
+            int contlineas = 0;
+
+            try (BufferedReader br = new BufferedReader(new FileReader(fichero))) {
+                String linea;
+                while ((linea = br.readLine()) != null) {
+                    longitud += linea.length();
+                    contlineas++;
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            return  longitud / contlineas ;
+        }
+    	
+    
+    
+  
 
 
 
 	public static void main(String[] args) {
 		System.out.println(funcion1(4,2));
+		System.out.println("///");
 		System.out.println(funcion2(3,5,2));
+		System.out.println("///");
 		System.out.println(funcion3(4,2));
+		System.out.println("///");
 		System.out.println(funcion4(4,2));
+		System.out.println("///");
 		
 		java.util.function.Function<Float, Float> f = x -> 2 * x * x; 
         java.util.function.Function<Float, Float> fPrima = x -> 4 * x; 
@@ -117,9 +173,14 @@ public class LecturaArchivo {
         float raiz = funcion5(f, fPrima, a, epsilon);
         System.out.println("La raíz encontrada es: " + raiz);
         
-        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        
-
+        System.out.println("/////////////////////////////////////////////////////////");
+        System.out.println(funcion6("src/datos-entregable-01 (1)/lin_quijote.txt"," ","quijote"));
+        System.out.println("///");
+        funcion7("src/datos-entregable-01 (1)/lin_quijote.txt"," ","quijote");
+        System.out.println("///");
+        System.out.println(funcion8("src/datos-entregable-01 (1)/archivo_palabras.txt"));
+        System.out.println("///");
+        System.out.println(funcion9("src/datos-entregable-01 (1)/palabras_random.csv"," "));
 	}
 
 }
