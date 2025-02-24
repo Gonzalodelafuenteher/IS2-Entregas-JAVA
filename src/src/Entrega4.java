@@ -132,28 +132,22 @@ public class Entrega4{
     }
     	
     	
-    	public static double funcion9(String fichero, String separador) {
-            int longitud = 0;
-            int contlineas = 0;
-
+    	public static double funcion9(String fichero) {
+            double contlineas = 0;
+            double contpalabra = 0;
             try (BufferedReader br = new BufferedReader(new FileReader(fichero))) {
                 String linea;
                 while ((linea = br.readLine()) != null) {
-                    longitud += linea.length();
+                	String [] palabras = linea.trim().split(",");
                     contlineas++;
+                    contpalabra += palabras.length;
                 }
             } catch (IOException e) {
                 e.printStackTrace();
             }
 
-            return  longitud / contlineas ;
+            return  contpalabra / contlineas ;
         }
-    	
-    
-    
-  
-
-
 
 	public static void main(String[] args) {
 		System.out.println(funcion1(4,2));
@@ -168,8 +162,8 @@ public class Entrega4{
 		java.util.function.Function<Float, Float> f = x -> 2 * x * x; 
         java.util.function.Function<Float, Float> fPrima = x -> 4 * x; 
 
-        float a = 3.0f; // Initial guess
-        float epsilon = 0.001f; // Error tolerance
+        float a = 3.0f; 
+        float epsilon = 0.001f; 
         float raiz = funcion5(f, fPrima, a, epsilon);
         System.out.println("La raíz encontrada es: " + raiz);
         
@@ -180,7 +174,6 @@ public class Entrega4{
         System.out.println("///");
         System.out.println(funcion8("src/datos-entregable-01 (1)/archivo_palabras.txt"));
         System.out.println("///");
-        System.out.println(funcion9("src/datos-entregable-01 (1)/palabras_random.csv"," "));
+        System.out.println(funcion9("src/datos-entregable-01 (1)/palabras_random.csv"));
 	}
-
 }
