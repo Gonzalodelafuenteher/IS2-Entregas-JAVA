@@ -1,5 +1,5 @@
 
-package src;
+package Entrega4;
 
 public class Funciones {
     public static int calcularProducto(int n, int k) {
