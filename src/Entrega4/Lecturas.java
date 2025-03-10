@@ -74,29 +74,25 @@ public class Lecturas {
 		return contpalabra / contlineas;
 	}
 	
+
 	public static void main(String[] args) {
-		System.out.println(contarpalabras("src/datos-entregable-01 (1)/lin_quijote.txt", " ", "quijote"));
-		System.out.println("///");
-		filtrarLineasPorTexto("src/datos-entregable-01 (1)/lin_quijote.txt", " ", "quijote");
-		System.out.println("///");
-		System.out.println(encontrarPalabrasUnicas("src/datos-entregable-01 (1)/archivo_palabras.txt"));
-		System.out.println("///");
-		System.out.println(longitudMediaLineasCSV("src/datos-entregable-01 (1)/palabras_random.csv"));
-		
-		System.out.println("################################################");
-        System.out.println("\nTEST DE LA contarpalabras:\n");
-        System.out.println("El número de veces que aparece la palabra quijote en el fichero src/datos-entregable-01 (1)/lin_quijote.txt es: " + contarpalabras("src/datos-entregable-01 (1)/lin_quijote.txt", " ", "quijote"));
-        System.out.println("\n################################################");
-        System.out.println("\nTEST DE LA filtrarLineasPorTexto:\n");
-        System.out.println("Las líneas en las que aparece la palabra quijote son:");
-        filtrarLineasPorTexto("src/datos-entregable-01 (1)/lin_quijote.txt", " ", "quijote");
-        System.out.println("\n################################################");
-        System.out.println("\nTEST DE LA encontrarPalabrasUnicas:\n");
-        System.out.println("Las palabras únicas en el fichero datos-entregable-01 (1)/archivo_palabras.txt son: " + encontrarPalabrasUnicas("src/datos-entregable-01 (1)/archivo_palabras.txt"));
-        System.out.println("\n################################################");
-        System.out.println("\nTEST DE longitudMediaLineasCSV:\n");
-        System.out.println("La longitud promedio de las líneas del fichero datos-entregable-01 (1)/palabras_random.csv es: " + longitudMediaLineasCSV("src/datos-entregable-01 (1)/palabras_random.csv"));
-        System.out.println("\n################################################");
+	    System.out.println("################################################");
+	    System.out.println("\nTEST DE LA contarpalabras:\n");
+	    System.out.println("El número de veces que aparece la palabra quijote en el fichero src/datos-entregable-01 (1)/lin_quijote.txt es: " + contarpalabras("src/datos-entregable-01 (1)/lin_quijote.txt", " ", "quijote"));
+	    System.out.println("\n################################################");
+	    System.out.println("\nTEST DE LA filtrarLineasPorTexto:\n");
+	    System.out.println("Las líneas en las que aparece la palabra quijote son:");
+	    filtrarLineasPorTexto("src/datos-entregable-01 (1)/lin_quijote.txt", " ", "quijote");
+	    System.out.println("\n################################################");
+	    System.out.println("\nTEST DE LA encontrarPalabrasUnicas:\n");
+	    System.out.println("Las palabras únicas en el fichero datos-entregable-01 (1)/archivo_palabras.txt son: " + encontrarPalabrasUnicas("src/datos-entregable-01 (1)/archivo_palabras.txt").toString());
+	    System.out.println("\n################################################");
+	    System.out.println("\nTEST DE longitudMediaLineasCSV:\n");
+	    System.out.println("La longitud promedio de las líneas del fichero datos-entregable-01 (1)/palabras_random.csv es: " + longitudMediaLineasCSV("src/datos-entregable-01 (1)/palabras_random.csv"));
+	    System.out.println("La longitud promedio de las líneas del fichero datos-entregable-01 (1)/vacio.csv es: " + longitudMediaLineasCSV("src/datos-entregable-01 (1)/vacio.csv"));
+	    System.out.println("\n################################################");
 	}
 
-}
+	}
+
+
