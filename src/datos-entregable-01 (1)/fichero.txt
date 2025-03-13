@@ -1,0 +1,6 @@
+Este es un ejemplo de texto.
+Java programación es muy interesante.
+Aprender a programar en Java es útil.
+El lenguaje de programación es poderoso.
+Me gusta escribir código en Java.
+La programación en Java programación es eficiente.
