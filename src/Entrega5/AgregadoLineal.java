@@ -27,12 +27,19 @@ public abstract class AgregadoLineal<E> {
     }
     	
     public E remove() {
-    	List<E> 
-    	
+        if (this.AgregadoLineal.isEmpty()) {
+            throw new IllegalStateException("La lista está vacía");
+        }
+        return this.AgregadoLineal.remove(0);
     }
+    
+    
+    
     public List<E> removeAll(){
-    	
+    	List<E> copia = new ArrayList<>(AgregadoLineal); 
+    	this.AgregadoLineal.clear();
+    	return copia;
     }
+    
 	
-
 }
