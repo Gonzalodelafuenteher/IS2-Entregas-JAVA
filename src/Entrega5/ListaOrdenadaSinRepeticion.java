@@ -14,7 +14,7 @@ public class ListaOrdenadaSinRepeticion<E> extends ListaOrdenada<E> {
 
     @Override
     public void add(E e) {
-        if (!elementos.contains(e)) {
+        if (!Elementos.contains(e)) {
             super.add(e);
         }
     }
@@ -36,19 +36,19 @@ public class ListaOrdenadaSinRepeticion<E> extends ListaOrdenada<E> {
         lista.add(5);
         lista.add(2);
 
-        System.out.println("Elementos en la lista: " + lista.elementos);
-        System.out.println("Tamaño de la lista: " + lista.elementos.size());
+        System.out.println("Elementos en la lista: " + lista.Elementos);
+        System.out.println("Tamaño de la lista: " + lista.Elementos.size());
         System.out.println("Se esperan 5 elementos únicos ordenados");
 
-        System.out.println("Eliminando el primer elemento: " + lista.elementos.remove(0));
-        System.out.println("Elementos después de eliminar: " + lista.elementos);
+        System.out.println("Eliminando el primer elemento: " + lista.Elementos.remove(0));
+        System.out.println("Elementos después de eliminar: " + lista.Elementos);
 
         System.out.println("Añadiendo elementos en lote: 4, 6, 7, 4");
         lista.add(4);
         lista.add(6);
         lista.add(7);
         lista.add(4);
-        System.out.println("Elementos después de añadir lote: " + lista.elementos);
+        System.out.println("Elementos después de añadir lote: " + lista.Elementos);
         System.out.println("Se espera que el 4 aparezca solo una vez");
     }
 }

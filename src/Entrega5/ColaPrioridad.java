@@ -5,7 +5,6 @@ import java.util.List;
 
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.List;
 
 public class ColaPrioridad<E, P extends Comparable<P>> extends Cola<PriorityElement<E, P>> {
     private List<PriorityElement<E, P>> elements;

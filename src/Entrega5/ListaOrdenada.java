@@ -1,17 +1,17 @@
-package Entrega5;
+ package Entrega5;
 
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.List;
+
 
 public class ListaOrdenada<E> extends AgregadoLineal<E> {
     
     private Comparator<E> comparator;
-    protected List<E> elementos; 
+    
 
     public ListaOrdenada(Comparator<E> comparator) {
         this.comparator = comparator;
-        this.elementos = new ArrayList<>(); 
+        this.Elementos = new ArrayList<>(); 
     }
     
     public static <E> ListaOrdenada<E> of(Comparator<E> comparator) {
@@ -20,18 +20,18 @@ public class ListaOrdenada<E> extends AgregadoLineal<E> {
     
     private int indexOrder(E e) {
         
-        for (int i = 0; i < elementos.size(); i++) {
-            if (comparator.compare(e, elementos.get(i)) < 0) {
+        for (int i = 0; i < Elementos.size(); i++) {
+            if (comparator.compare(e, Elementos.get(i)) < 0) {
                 return i; 
             }
         }
-        return elementos.size(); 
+        return Elementos.size(); 
     }
 
     @Override
     public void add(E e) {
         int index = indexOrder(e); 
-        elementos.add(index, e); 
+        Elementos.add(index, e); 
     }
     
    
@@ -47,21 +47,21 @@ public class ListaOrdenada<E> extends AgregadoLineal<E> {
         lista.add(1);
         lista.add(3);
 
-        System.out.println("Elementos en la lista: " + lista.elementos);
-        System.out.println("Tamaño de la lista: " + lista.elementos.size());
+        System.out.println("Elementos en la lista: " + lista.Elementos);
+        System.out.println("Tamaño de la lista: " + lista.Elementos.size());
 
-        System.out.println("Eliminando el primer elemento: " + lista.elementos.remove(0));
-        System.out.println("Elementos después de eliminar: " + lista.elementos);
+        System.out.println("Eliminando el primer elemento: " + lista.Elementos.remove(0));
+        System.out.println("Elementos después de eliminar: " + lista.Elementos);
 
         System.out.println("Añadiendo elementos en lote: 4, 6, 7");
         lista.add(4);
         lista.add(6);
         lista.add(7);
-        System.out.println("Elementos después de añadir lote: " + lista.elementos);
+        System.out.println("Elementos después de añadir lote: " + lista.Elementos);
 
-        System.out.println("Eliminando todos los elementos: " + lista.elementos);
-        lista.elementos.clear();
-        System.out.println("¿Está vacía? " + lista.elementos.isEmpty());
+        System.out.println("Eliminando todos los elementos: " + lista.Elementos);
+        lista.Elementos.clear();
+        System.out.println("¿Está vacía? " + lista.Elementos.isEmpty());
 
         // Test with strings
         Comparator<String> stringComparator = String::compareTo;
@@ -71,7 +71,7 @@ public class ListaOrdenada<E> extends AgregadoLineal<E> {
         listaStrings.add("date");
         listaStrings.add("cherry");
 
-        System.out.println("Elementos ordenados: " + listaStrings.elementos);
+        System.out.println("Elementos ordenados: " + listaStrings.Elementos);
     }
 
 }

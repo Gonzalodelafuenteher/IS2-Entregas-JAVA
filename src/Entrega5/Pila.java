@@ -21,7 +21,7 @@ public class Pila<E> extends AgregadoLineal<E> {
         Pila1.add("Element3");
         System.out.println(Pila1);
 
-        System.out.println(Pila1.top()); // Output: Element3
+        System.out.println(Pila1.top());
         
         
         Pila<Double> pila = new Pila<>();

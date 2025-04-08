@@ -7,7 +7,7 @@ public class Cola<E> extends AgregadoLineal<E> {
 
     @Override
     public void add(E e) {
-        this.AgregadoLineal.addLast(e);
+        this.Elementos.addLast(e);
     }
 
     public static void main(String[] args) {
@@ -15,9 +15,9 @@ public class Cola<E> extends AgregadoLineal<E> {
         cola1.add(2);
         cola1.add(3);
         cola1.add(5);
-        System.out.println(cola1.elements());
+        System.out.println(cola1.Elementos());
         cola1.remove();
-        System.out.println(cola1.elements());
+        System.out.println(cola1.Elementos());
         
         
         Cola<String> cola = Cola.of();
@@ -27,18 +27,18 @@ public class Cola<E> extends AgregadoLineal<E> {
         cola.add("segundo");
         cola.add("tercero");
 
-        System.out.println("Elementos en la cola: " + cola.elements());
+        System.out.println("Elementos en la cola: " + cola.Elementos());
         System.out.println("Tamaño de la cola: " + cola.size());
 
         System.out.println("Desencolando elementos:");
         System.out.println("Desencolado: " + cola.remove());
-        System.out.println("Cola restante: " + cola.elements());
+        System.out.println("Cola restante: " + cola.Elementos());
 
         System.out.println("Desencolado: " + cola.remove());
-        System.out.println("Cola restante: " + cola.elements());
+        System.out.println("Cola restante: " + cola.Elementos());
 
         System.out.println("Desencolado: " + cola.remove());
-        System.out.println("Cola restante: " + cola.elements());
+        System.out.println("Cola restante: " + cola.Elementos());
 
         System.out.println("¿Está vacía? " + cola.isEmpty());
 
