@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class AgregadoLineal<E> {
-	ArrayList<E> Elementos = new ArrayList<>();
+	 ArrayList<E> Elementos = new ArrayList<>();
 	
 	public int size() {
 		return this.Elementos.size();
@@ -22,10 +22,9 @@ public abstract class AgregadoLineal<E> {
     
     public void addAll(List<E> list) {
         for (E e : list) {
-            this.Elementos.add(e);
+            this.add(e); 
         }
     }
-    	
     public E remove() {
         if (this.Elementos.isEmpty()) {
             throw new IllegalStateException("La lista está vacía");
