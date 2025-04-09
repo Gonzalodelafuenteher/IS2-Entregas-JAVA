@@ -6,10 +6,10 @@ import java.util.Comparator;
 import java.util.List;
 
 public class ColaPrioridad<E, P extends Comparable<P>> extends Cola<PriorityElement<E, P>> {
-    private final List<PriorityElement<E, P>> elementos;
+    
 
     public ColaPrioridad() {
-        this.elementos = new ArrayList<>();
+        
     }
 
     public static <E, P extends Comparable<P>> ColaPrioridad<E, P> ofPriority() {
@@ -18,8 +18,8 @@ public class ColaPrioridad<E, P extends Comparable<P>> extends Cola<PriorityElem
 
     @Override
     public void add(PriorityElement<E, P> element) {
-        elementos.add(element);
-        elementos.sort(Comparator.comparing(PriorityElement::priority));
+        Elementos.add(element);
+        Elementos.sort(Comparator.comparing(PriorityElement::priority));
     }
 
     public void add(E value, P priority) {
@@ -28,16 +28,16 @@ public class ColaPrioridad<E, P extends Comparable<P>> extends Cola<PriorityElem
 
     public List<E> valuesAsList() {
         List<E> values = new ArrayList<>();
-        for (PriorityElement<E, P> element : elementos) {
+        for (PriorityElement<E, P> element : Elementos) {
             values.add(element.value());
         }
         return values;
     }
 
     public void decreasePriority(E value, P newPriority) {
-        for (PriorityElement<E, P> element : new ArrayList<>(elementos)) {
+        for (PriorityElement<E, P> element : new ArrayList<>(Elementos)) {
             if (element.value().equals(value)) {
-                elementos.remove(element);
+                Elementos.remove(element);
                 add(value, newPriority);
                 break;
             }
@@ -45,10 +45,10 @@ public class ColaPrioridad<E, P extends Comparable<P>> extends Cola<PriorityElem
     }
 
     public E removeValue() {
-        if (elementos.isEmpty()) {
+        if (Elementos.isEmpty()) {
             throw new IllegalStateException("The queue is empty");
         }
-        return elementos.remove(0).value();
+        return Elementos.remove(0).value();
     }
 
     public void addAllValues(List<E> values, P priority) {
@@ -78,8 +78,8 @@ public class ColaPrioridad<E, P extends Comparable<P>> extends Cola<PriorityElem
             
            
             System.out.println("Elementos en la cola por prioridad: " + cola.valuesAsList());
-            System.out.println("Elementos con sus prioridades: " + cola.elementos);
-            System.out.println("Tamaño de la cola: " + cola.elementos.size());
+            System.out.println("Elementos con sus prioridades: " + cola.Elementos);
+            System.out.println("Tamaño de la cola: " + cola.Elementos.size());
             
            
             System.out.println("Cambiando la prioridad de 'Normal' de 3 a 1:");
@@ -88,14 +88,14 @@ public class ColaPrioridad<E, P extends Comparable<P>> extends Cola<PriorityElem
             
             
             System.out.println("Desencolando elementos por prioridad:");
-            while (!cola.elementos.isEmpty()) {
+            while (!cola.Elementos.isEmpty()) {
                 String value = cola.removeValue();
                 System.out.println("Desencolado: " + value);
                 System.out.println("Cola restante: " + cola.valuesAsList());
             }
             
             
-            System.out.println("¿Está vacía? " + cola.elementos.isEmpty());
+            System.out.println("¿Está vacía? " + cola.Elementos.isEmpty());
             
             
             try {
