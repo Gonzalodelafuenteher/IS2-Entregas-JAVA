@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class AgregadoLineal<E> {
-	 ArrayList<E> Elementos = new ArrayList<>();
+	 protected ArrayList<E> Elementos = new ArrayList<>();
 	
 	public int size() {
 		return this.Elementos.size();

@@ -1,38 +1,46 @@
- package Entrega5;
+
+package Entrega5;
 
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.Iterator;
+import java.util.List;
 
+public class ListaOrdenada<E> extends AgregadoLineal<E> implements Iterable<E> {
 
-public class ListaOrdenada<E> extends AgregadoLineal<E> {
-    
     private Comparator<E> comparator;
-    
+    protected List<E> Elementos;
 
     public ListaOrdenada(Comparator<E> comparator) {
         this.comparator = comparator;
-        this.Elementos = new ArrayList<>(); 
+        this.Elementos = new ArrayList<>();
     }
-    
+
     public static <E> ListaOrdenada<E> of(Comparator<E> comparator) {
         return new ListaOrdenada<>(comparator);
     }
-    
+
+    public void add(E e) {
+        int index = indexOrder(e);
+        Elementos.add(index, e);
+    }
+
     private int indexOrder(E e) {
-        
         for (int i = 0; i < Elementos.size(); i++) {
             if (comparator.compare(e, Elementos.get(i)) < 0) {
-                return i; 
+                return i;
             }
         }
-        return Elementos.size(); 
+        return Elementos.size();
     }
 
     @Override
-    public void add(E e) {
-        int index = indexOrder(e); 
-        Elementos.add(index, e); 
+    public Iterator<E> iterator() {
+        return Elementos.iterator();
     }
+
+
+
     
    
     public static void main(String[] args) {
